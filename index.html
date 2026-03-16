@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BMI Calculator</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            width: 380px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 28px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 6px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+            margin-bottom: 18px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #f4736b;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover { background: #e05a52; }
+        .result {
+            margin-top: 24px;
+            padding: 16px;
+            background: #e8f5e9;
+            border-radius: 8px;
+            text-align: center;
+            color: #2e7d32;
+            font-size: 17px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>⚖️ BMI Calculator</h1>
+        <form method="POST">
+            <label>Weight (kg)</label>
+            <input type="number" name="weight" placeholder="e.g. 68" min="1" required>
+
+            <label>Height (cm)</label>
+            <input type="number" name="height" placeholder="e.g. 170" min="1" required>
+
+            <button type="submit">Calculate BMI</button>
+        </form>
+
+        {% if result %}
+        <div class="result">
+            BMI: <strong>{{ result.bmi }}</strong> &nbsp;|&nbsp; <strong>{{ result.label }}</strong>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
